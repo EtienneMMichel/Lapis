@@ -1,25 +1,13 @@
-symbol: "USDJPY"
+forecaster:
+  name: "Dummy"
 
-backtesting:
-  utc_from : '09/19/20 00:00:00'
-  utc_to : '09/19/22 00:00:00'
+picker:
+  name: "Dummy"
 
-inputs_metadata: [
-  {"symbol":"USDCHF","timeframe":"TIMEFRAME_H1", "nb_past_tick":"26"},
-  {"symbol":"EURUSD","timeframe":"TIMEFRAME_H1", "nb_past_tick":"26"},
-  {"symbol":"USDJPY","timeframe":"TIMEFRAME_H1", "nb_past_tick":"26"}
-]
-
+sizer:
+  name: "Dummy"
 
 treasurer:
-  name: "Backtester"
-  account_path: "../account_admiral.json"
-
-manager:
-  name: "MACDTracker"
-
-forecaster:
-  name: "DummyForecaster"
-  account_path: "../account_admiral.json"
+  name: "Dummy"
 
 
