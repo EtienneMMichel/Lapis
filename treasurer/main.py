@@ -5,8 +5,8 @@ import sys
 import module
 from datetime import datetime
 
-SUB_KEY = "treasurer-*"
-PUB_KEY = "treasurer-request_orders"
+SUB_KEY = "treasurer"
+PUB_KEY = "sender"
 
 GLOBAL_CONFIG_FETCH_INSTANCE = "treasurer"
 

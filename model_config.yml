@@ -1,3 +1,12 @@
+getter:
+  name: "Dummy"
+
+sender:
+  name: "Dummy"
+
+
+
+
 forecaster:
   name: "Dummy"
 

@@ -5,8 +5,8 @@ import sys
 import module
 from datetime import datetime
 
-SUB_KEY = "picker-*"
-PUB_KEY = "treasurer-request_orders"
+SUB_KEY = "picker"
+PUB_KEY = "sizer"
 
 GLOBAL_CONFIG_FETCH_INSTANCE = "picker"
 
@@ -25,15 +25,8 @@ def stream(instance, r):
                 in_data = None
             if isinstance(in_data, dict):
                 # --------------------------------------------------------
-                out_data = None
                 if in_data["type"] == "act": 
-                    out_data = instance.act(in_data["data"])
-                    
-                    if not out_data is None:
-                        data_to_send = out_data
-                        data_to_send = {"type":"act", "data":out_data}
-                        data_to_send = json.dumps(data_to_send).encode('utf-8')
-                        r.publish(PUB_KEY,data_to_send)
+                    instance.send_request(in_data["data"])
 
 
                 # elif backtesting and in_data["type"] == "backtesting_ended":

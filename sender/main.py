@@ -5,10 +5,10 @@ import sys
 import module
 from datetime import datetime
 
-SUB_KEY = "sizer"
-PUB_KEY = "treasurer"
+SUB_KEY = "treasurer"
+PUB_KEY = "picker"
 
-GLOBAL_CONFIG_FETCH_INSTANCE = "sizer"
+GLOBAL_CONFIG_FETCH_INSTANCE = "sender"
 
 def stream(instance, r):
     p = r.pubsub()

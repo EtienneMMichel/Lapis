@@ -9,6 +9,6 @@ class Dummy(Module):
     def __init__(self, config):
         Module.__init__(self, config)
 
-    def send_request(self, data):
+    def get_data(self, data):
         pass
 

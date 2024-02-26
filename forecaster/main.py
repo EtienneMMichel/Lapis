@@ -5,8 +5,8 @@ import sys
 import module
 from datetime import datetime
 
-SUB_KEY = "forecaster-*"
-PUB_KEY = "treasurer-request_orders"
+SUB_KEY = "getter"
+PUB_KEY = "picker"
 
 GLOBAL_CONFIG_FETCH_INSTANCE = "forecaster"
 
