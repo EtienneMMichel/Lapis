@@ -26,6 +26,11 @@ def stream(instance, r):
             if isinstance(in_data, dict):
                 # --------------------------------------------------------
                 out_data = None
+                if in_data["type"] == "backtesting_ended":
+                    data_to_send = {"type":"backtesting_ended"}
+                    data_to_send = json.dumps(data_to_send).encode('utf-8')
+                    r.publish(PUB_KEY,data_to_send)
+                    break
                 if in_data["type"] == "act": 
                     out_data = instance.act(in_data["data"])
                     

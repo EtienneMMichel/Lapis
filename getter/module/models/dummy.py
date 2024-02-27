@@ -20,5 +20,5 @@ class Dummy(Module):
         matchs_infos_raw = matchs_infos_raw.to_dict('records')
         matchs_infos = [{"Odds": [m["Odd1"], m["Odd2"]], "externals_data":m} for m in matchs_infos_raw]
         
-        return [matchs_infos, winners]
+        return {"matchs_infos":matchs_infos, "winners":winners}
 

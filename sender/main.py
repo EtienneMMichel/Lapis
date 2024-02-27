@@ -26,6 +26,9 @@ def stream(instance, r):
             if isinstance(in_data, dict):
                 # --------------------------------------------------------
                 out_data = None
+                if in_data["type"] == "backtesting_ended":
+                    # VIZUALIZE
+                    break
                 if in_data["type"] == "act": 
                     out_data = instance.act(in_data["data"])
                     

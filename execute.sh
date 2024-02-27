@@ -1,0 +1,1 @@
+gnome-terminal -e "bash -c 'echo hello world; sleep 3'"
