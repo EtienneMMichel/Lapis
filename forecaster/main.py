@@ -5,7 +5,7 @@ import sys
 import module
 from datetime import datetime
 
-SUB_KEY = "getter"
+SUB_KEY = "forecaster"
 PUB_KEY = "picker"
 
 GLOBAL_CONFIG_FETCH_INSTANCE = "forecaster"
@@ -26,11 +26,17 @@ def stream(instance, r):
             if isinstance(in_data, dict):
                 # --------------------------------------------------------
                 out_data = None
-                if in_data["type"] == "act": 
+                if in_data["type"] == "backtesting_ended":
+                    data_to_send = {"type":"backtesting_ended"}
+                    data_to_send = json.dumps(data_to_send).encode('utf-8')
+                    r.publish(PUB_KEY,data_to_send)
+                    break
+                if in_data["type"] == "act":
                     out_data = instance.act(in_data["data"])
                     
                     if not out_data is None:
                         data_to_send = out_data
+                        print(out_data)
                         data_to_send = {"type":"act", "data":out_data}
                         data_to_send = json.dumps(data_to_send).encode('utf-8')
                         r.publish(PUB_KEY,data_to_send)
