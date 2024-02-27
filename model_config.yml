@@ -1,5 +1,7 @@
 getter:
   name: "Dummy"
+  data_path: "DATA/preprocessed/tennis.csv"
+  data_length: 10
 
 sender:
   name: "Dummy"
