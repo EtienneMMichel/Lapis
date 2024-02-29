@@ -16,10 +16,10 @@ class Dummy(Module):
 
     def act(self, data):
         """
-        input: [matchs_infos, winners]
+        input: {matchs_infos, winners}
         DO NOT USE WINNERS variable ;)
 
-        output: [matchs_infos, preds, winners]
+        output: {matchs_infos, preds, winners}
         preds: [{classic_preds:[0.4, 0.6], other_preds:[]}]
         """
         preds = []

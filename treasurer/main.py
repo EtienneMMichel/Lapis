@@ -31,7 +31,7 @@ def stream(instance, r):
                     data_to_send = json.dumps(data_to_send).encode('utf-8')
                     r.publish(PUB_KEY,data_to_send)
                     break
-                if in_data["type"] == "act": 
+                if in_data["type"] == "act":
                     out_data = instance.act(in_data["data"])
                     
                     if not out_data is None:

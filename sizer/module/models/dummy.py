@@ -10,5 +10,21 @@ class Dummy(Module):
         Module.__init__(self, config)
 
     def act(self, data):
-        pass
+        """
+        input: {matchs_infos, preds,combs, winners}
+        preds: [{classic_preds:[0.4, 0.6], other_preds:[]}]
+        combs: [{"mask":[0,1,0,0,1], "prob":0.4, "odd":4.6}]
+        DO NOT USE WINNERS variable ;)
+
+        output: {matchs_infos, preds,combs, winners}
+        combs += "allocation": 0.3
+        """
+
+        allocations = [random.random() for _ in range(len(data["combs"]))]
+        allocations = [elm/sum(allocations) for elm in allocations]
+        for i_comb in range(len(data["combs"])):
+            data["combs"][i_comb]["allocation"] = allocations[i_comb]
+        
+        return data
+
 
