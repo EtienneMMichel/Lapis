@@ -6,12 +6,13 @@ from module.models.module import Module
 import time
 import numpy as np
 
-MAX_NB_COMBS = 10
 
-class Dummy(Module):
+class MostProbableByMatch(Module):
     def __init__(self, config):
         Module.__init__(self, config)
 
+    
+        
 
     def act(self, data):
         """
@@ -23,11 +24,12 @@ class Dummy(Module):
         combs: [{"mask":[0,1,0,0,1], "prob":0.4, "odd":4.6}, {"mask":[0,1,0,0,1], "prob":0.4, "odd":4.6}]
         """
         nb_matchs = len(data["matchs_infos"])
-        max_comb = (2**nb_matchs if 2**nb_matchs <= MAX_NB_COMBS else MAX_NB_COMBS)
-        nb_combs = random.randint(1,max_comb)
+        nb_combs = nb_matchs
         chosed_combs = []
-        for _ in range(nb_combs):
-            comb = np.random.choice([0, 1], size=2*nb_matchs, p=[0.7, 0.3])
+        for i in range(nb_combs):
+            comb = [[0,0] for _ in range(nb_matchs)]
+            comb[i] = ([1,0] if data["preds"][i]["classic_preds"][0] >= data["preds"][i]["classic_preds"][1] else [0,1])
+            comb = np.array(comb).flatten()
             chosed_combs.append({
                 "mask":comb.tolist(),
                 "prob":self.compute_prob(comb, data["preds"]),
