@@ -31,14 +31,17 @@ def stream(instance, r):
                     data_to_send = json.dumps(data_to_send).encode('utf-8')
                     r.publish(PUB_KEY,data_to_send)
                     break
-                if in_data["type"] == "act":
+                elif in_data["type"] == "act":
                     out_data = instance.act(in_data["data"])
                     
                     if not out_data is None:
-                        data_to_send = out_data
+                        # print(out_data)
                         data_to_send = {"type":"act", "data":out_data}
                         data_to_send = json.dumps(data_to_send).encode('utf-8')
                         r.publish(PUB_KEY,data_to_send)
+
+                elif in_data["type"] == "update_balance":
+                    instance.update_balance(in_data["data"])
 
 
                 # elif backtesting and in_data["type"] == "backtesting_ended":

@@ -19,5 +19,11 @@ class Dummy(Module):
         output: {matchs_infos, preds,combs, winners}
         combs += "allocation_fund": 30
         """
-        pass
+        if not self.balance is None:
+            for comb_id in range(len(data["combs"])):
+                allocation_fund = random.randint(0, 10)
+                data["combs"][comb_id]["allocation_fund"] = allocation_fund
+        
+        return data
+        
 
