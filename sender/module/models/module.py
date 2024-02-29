@@ -12,6 +12,8 @@ class Module():
         self.balance_records = [self.balance]
 
     def get_return(self, comb, winners):
+        
+        winners = np.array([[1,0] if w == 1 else [0,1] for w in winners]).flatten()
         allocation = comb["allocation"]
         allocation_fund = comb["allocation_fund"]
         mask = comb["mask"]
@@ -19,7 +21,7 @@ class Module():
         comb_cost = allocation*allocation_fund
         if comb_cost > self.balance:
             comb_cost = self.balance
-        if np.array(np.multiply(mask, winners) - mask).all():
+        if np.array(np.array(np.multiply(mask, winners) - mask) == 0).all():
             # WIN
             return comb_cost*odd - comb_cost
         
