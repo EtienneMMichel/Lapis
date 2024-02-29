@@ -35,8 +35,7 @@ def stream(instance, r):
                     out_data = instance.act(in_data["data"])
                     
                     if not out_data is None:
-                        data_to_send = out_data
-                        print(out_data)
+                        # print(out_data)
                         data_to_send = {"type":"act", "data":out_data}
                         data_to_send = json.dumps(data_to_send).encode('utf-8')
                         r.publish(PUB_KEY,data_to_send)
