@@ -22,9 +22,7 @@ class Dummy(Module):
 
         allocations = [random.random() for _ in range(len(data["combs"]))]
         allocations = [elm/sum(allocations) for elm in allocations]
-        for i_comb in range(len(data["combs"])):
-            data["combs"][i_comb]["allocation"] = allocations[i_comb]
         
-        return data
+        return self.allocation_into_combs(data, allocations)
 
 

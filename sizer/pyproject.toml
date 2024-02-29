@@ -11,6 +11,7 @@ redis = {extras = ["hiredis"], version = "^4.6.0"}
 pyyaml = "^6.0.1"
 metatrader5 = "^5.0.45"
 pandas = "^2.1.4"
+cvxpy = "^1.4.2"
 
 
 [build-system]
