@@ -1,4 +1,4 @@
-# Lapis ![Lapis image](Lapis_image.png "Lapis image")
+# <img src="Lapis_image.png" alt="Lapis" width="50"/> Lapis
 Aim to build a solid pipeline to handle sports bets
 
 ## Scheme
